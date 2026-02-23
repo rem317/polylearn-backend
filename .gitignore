@@ -19,4 +19,6 @@ yarn-error.log*
 .idea/
 .vscode/
 *.swp
-*.swo
+*.swo"uploads/" 
+".env.production" 
+"node_modules/" 
