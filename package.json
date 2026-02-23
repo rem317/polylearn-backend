@@ -24,7 +24,7 @@
     "helmet": "^7.0.0",
     "jsonwebtoken": "^9.0.0",
     "multer": "^2.0.2",
-    "mysql2": "^3.16.2"
+    "mysql2": "^3.17.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
