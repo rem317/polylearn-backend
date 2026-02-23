@@ -94,18 +94,17 @@ const upload = multer({
 // ============================================
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
-    user: process.env.DB_USER,
+    port: Number(process.env.DB_PORT) || 3306,
+    user: process.env.DB_USER,     // ⚠️ Dapat ganito, hindi hardcoded
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: process.env.DB_PORT,
     waitForConnections: true,
     connectionLimit: 10,
     queueLimit: 0,
-    ssl: {
-        rejectUnauthorized: true  // ⚠️ I-ADD ITO
-    }
-});
-const promisePool = pool.promise();
+    ssl: process.env.DB_ENABLE_SSL === 'true' ? {
+        rejectUnauthorized: true
+    } : null
+});const promisePool = pool.promise();
 
 // Test connection
 pool.getConnection((err, connection) => {
